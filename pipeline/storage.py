@@ -18,6 +18,18 @@ import os
 
 from . import config
 
+CONTENT_TYPES = {
+    ".html": "text/html; charset=utf-8",
+    ".json": "application/json",
+}
+
+
+def _content_type(relative_path):
+    """Pick the content type from the file extension, so the HTML page
+    opens as a web page from the bucket instead of as plain text."""
+    extension = os.path.splitext(relative_path)[1].lower()
+    return CONTENT_TYPES.get(extension, "application/octet-stream")
+
 
 def _write_local(files, output_dir):
     """Write each file to the local output directory. Returns paths."""
@@ -41,7 +53,9 @@ def _upload_to_s3(bucket, files):
     for relative_path, content in files.items():
         key = "da-pipeline/%s" % relative_path
         body = content if isinstance(content, bytes) else content.encode("utf-8")
-        client.put_object(Bucket=bucket, Key=key, Body=body)
+        client.put_object(
+            Bucket=bucket, Key=key, Body=body,
+            ContentType=_content_type(relative_path))
         keys.append("s3://%s/%s" % (bucket, key))
     return keys
 
@@ -50,16 +64,19 @@ def _upload_to_gcs(bucket, files):
     """Upload each file to GCS. Returns the object paths written."""
     from google.cloud import storage
 
-    client = storage.Client()
+    # storage.Client() cannot always determine the project from
+    # Application Default Credentials alone, so pass it explicitly
+    # when GOOGLE_CLOUD_PROJECT is set. Without it the upload fails
+    # with "Project was not passed and could not be determined".
+    project = os.environ.get("GOOGLE_CLOUD_PROJECT") or None
+    client = storage.Client(project=project)
     bucket_obj = client.bucket(bucket)
     paths = []
     for relative_path, content in files.items():
         name = "da-pipeline/%s" % relative_path
         blob = bucket_obj.blob(name)
-        if isinstance(content, bytes):
-            blob.upload_from_string(content)
-        else:
-            blob.upload_from_string(content, content_type="text/plain")
+        blob.upload_from_string(
+            content, content_type=_content_type(relative_path))
         paths.append("gs://%s/%s" % (bucket, name))
     return paths
 

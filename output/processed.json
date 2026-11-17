@@ -9,7 +9,6 @@
     "Seattle"
   ],
   "dates": [
-    "2026-11-16",
     "2026-11-17",
     "2026-11-18",
     "2026-11-19"
@@ -24,138 +23,138 @@
   "daily": [
     {
       "city": "Chicago",
-      "date": "2026-11-16",
-      "count": 16,
-      "mean_f": 42.5,
-      "min_f": 31.1,
-      "max_f": 51.2,
-      "range_f": 20.1
-    },
-    {
-      "city": "Chicago",
       "date": "2026-11-17",
       "count": 16,
-      "mean_f": 44.0,
-      "min_f": 31.7,
-      "max_f": 53.7,
-      "range_f": 22.0
+      "mean_f": 43.5,
+      "min_f": 32.2,
+      "max_f": 53.5,
+      "range_f": 21.3
     },
     {
       "city": "Chicago",
       "date": "2026-11-18",
       "count": 16,
-      "mean_f": 50.6,
-      "min_f": 35.7,
-      "max_f": 59.4,
-      "range_f": 23.7
+      "mean_f": 48.5,
+      "min_f": 35.1,
+      "max_f": 58.5,
+      "range_f": 23.4
     },
     {
-      "city": "Houston",
-      "date": "2026-11-16",
+      "city": "Chicago",
+      "date": "2026-11-19",
       "count": 16,
-      "mean_f": 55.7,
-      "min_f": 49.4,
-      "max_f": 61.5,
-      "range_f": 12.1
+      "mean_f": 55.6,
+      "min_f": 48.8,
+      "max_f": 60.5,
+      "range_f": 11.7
     },
     {
       "city": "Houston",
       "date": "2026-11-17",
       "count": 16,
       "mean_f": 56.0,
-      "min_f": 45.6,
+      "min_f": 46.2,
       "max_f": 62.9,
-      "range_f": 17.3
+      "range_f": 16.7
     },
     {
       "city": "Houston",
       "date": "2026-11-18",
       "count": 16,
-      "mean_f": 63.1,
-      "min_f": 50.1,
-      "max_f": 69.6,
-      "range_f": 19.5
+      "mean_f": 62.2,
+      "min_f": 52.3,
+      "max_f": 68.9,
+      "range_f": 16.6
     },
     {
-      "city": "Los Angeles",
-      "date": "2026-11-16",
+      "city": "Houston",
+      "date": "2026-11-19",
       "count": 16,
-      "mean_f": 66.8,
-      "min_f": 61.0,
-      "max_f": 71.1,
-      "range_f": 10.1
+      "mean_f": 68.8,
+      "min_f": 58.8,
+      "max_f": 75.0,
+      "range_f": 16.2
     },
     {
       "city": "Los Angeles",
       "date": "2026-11-17",
       "count": 16,
-      "mean_f": 60.4,
-      "min_f": 50.5,
-      "max_f": 68.3,
-      "range_f": 17.8
+      "mean_f": 62.5,
+      "min_f": 53.1,
+      "max_f": 70.2,
+      "range_f": 17.1
     },
     {
       "city": "Los Angeles",
       "date": "2026-11-18",
       "count": 16,
-      "mean_f": 62.1,
-      "min_f": 49.5,
-      "max_f": 68.0,
-      "range_f": 18.5
+      "mean_f": 61.8,
+      "min_f": 54.3,
+      "max_f": 66.7,
+      "range_f": 12.4
+    },
+    {
+      "city": "Los Angeles",
+      "date": "2026-11-19",
+      "count": 16,
+      "mean_f": 62.6,
+      "min_f": 59.1,
+      "max_f": 66.1,
+      "range_f": 7.0
     },
     {
       "city": "New York",
       "date": "2026-11-17",
       "count": 16,
-      "mean_f": 48.4,
-      "min_f": 34.0,
-      "max_f": 58.9,
-      "range_f": 24.9
+      "mean_f": 49.0,
+      "min_f": 37.7,
+      "max_f": 58.0,
+      "range_f": 20.3
     },
     {
       "city": "New York",
       "date": "2026-11-18",
       "count": 16,
-      "mean_f": 52.6,
-      "min_f": 39.1,
-      "max_f": 61.6,
-      "range_f": 22.5
+      "mean_f": 50.8,
+      "min_f": 39.2,
+      "max_f": 62.6,
+      "range_f": 23.4
     },
     {
       "city": "New York",
       "date": "2026-11-19",
       "count": 16,
-      "mean_f": 55.8,
-      "min_f": 49.1,
-      "max_f": 61.4,
-      "range_f": 12.3
-    },
-    {
-      "city": "Seattle",
-      "date": "2026-11-16",
-      "count": 16,
-      "mean_f": 46.0,
-      "min_f": 39.2,
-      "max_f": 51.9,
-      "range_f": 12.7
+      "mean_f": 55.5,
+      "min_f": 43.9,
+      "max_f": 61.5,
+      "range_f": 17.6
     },
     {
       "city": "Seattle",
       "date": "2026-11-17",
       "count": 16,
-      "mean_f": 44.1,
-      "min_f": 37.8,
-      "max_f": 49.9,
-      "range_f": 12.1
+      "mean_f": 42.8,
+      "min_f": 37.2,
+      "max_f": 48.3,
+      "range_f": 11.1
     },
     {
       "city": "Seattle",
       "date": "2026-11-18",
       "count": 16,
-      "mean_f": 45.7,
-      "min_f": 41.4,
-      "max_f": 50.3,
-      "range_f": 8.9
+      "mean_f": 44.9,
+      "min_f": 39.3,
+      "max_f": 51.0,
+      "range_f": 11.7
+    },
+    {
+      "city": "Seattle",
+      "date": "2026-11-19",
+      "count": 16,
+      "mean_f": 44.2,
+      "min_f": 40.1,
+      "max_f": 49.2,
+      "range_f": 9.1
     }
   ]
 }

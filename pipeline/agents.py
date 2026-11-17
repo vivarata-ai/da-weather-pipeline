@@ -2,8 +2,8 @@
 
 Google ADK, version 2.14.1, verified against the installed package.
 Each step of the pipeline is an agent, a subclass of ADK BaseAgent,
-and the pipeline itself is an agent that runs its sub-agents in
-sequence. They are executed by ADK Runner with an
+and the pipeline itself is an ADK SequentialAgent, the built-in
+workflow agent that runs its sub-agents in order. They are executed by ADK Runner with an
 InMemorySessionService, and they share state through the session:
 the ingestion agent writes the raw records, the processing agent
 reads them and writes the daily summary, and the storage agent
@@ -22,19 +22,20 @@ which is what the ADK docs describe BaseAgent for.
 import json
 from typing import AsyncGenerator
 
-from google.adk.agents import BaseAgent
+from google.adk.agents import BaseAgent, SequentialAgent
 from google.adk.agents.invocation_context import InvocationContext
-from google.adk.events import Event
+from google.adk.events import Event, EventActions
 from google.genai import types
 
 from . import config, storage, tools
 from .render import render_html
 
 
-def _event(agent_name, text):
+def _event(agent_name, text, state_delta=None):
     return Event(
         author=agent_name,
-        content=types.Content(parts=[types.Part(text=text)]))
+        content=types.Content(parts=[types.Part(text=text)]),
+        actions=EventActions(state_delta=state_delta or {}))
 
 
 class IngestionAgent(BaseAgent):
@@ -98,6 +99,18 @@ class StorageAgent(BaseAgent):
             self, ctx: InvocationContext) -> AsyncGenerator[Event, None]:
         processed = ctx.session.state.get("processed", {})
         raw_payloads = ctx.session.state.get("raw_payloads", [])
+        if not processed.get("daily"):
+            # Every city failed or every row was filtered out. Keep the
+            # last good outputs instead of overwriting them with an
+            # empty run, and say so.
+            yield _event(
+                self.name,
+                "No data to store, so the previous outputs were kept. "
+                "Failed cities: %s"
+                % [f["city"] for f in
+                   ctx.session.state.get("failed_cities", [])],
+                state_delta={"storage_skipped": True})
+            return
         files = {
             "raw.json": json.dumps(raw_payloads, indent=2),
             "processed.json": json.dumps(processed, indent=2),
@@ -113,19 +126,14 @@ class StorageAgent(BaseAgent):
         yield _event(self.name, message)
 
 
-class PipelineAgent(BaseAgent):
-    """Runs its sub-agents in sequence, passing state between them."""
-
-    async def _run_async_impl(
-            self, ctx: InvocationContext) -> AsyncGenerator[Event, None]:
-        for sub_agent in self.sub_agents:
-            async for event in sub_agent.run_async(ctx):
-                yield event
-
-
 def build_pipeline_agent():
-    """Build the pipeline: ingest, then process, then store."""
-    return PipelineAgent(
+    """Build the pipeline: ingest, then process, then store.
+
+    SequentialAgent is ADK's built-in workflow agent. It runs the
+    sub-agents in order on one shared session, so each agent reads
+    what the previous agent wrote to session state.
+    """
+    return SequentialAgent(
         name="pipeline_agent",
         description="End-to-end weather data pipeline.",
         sub_agents=[

@@ -16,7 +16,7 @@ on the DA homepage on Canvas.
 
 | Requirement | How this project meets it |
 | --- | --- |
-| End-to-end agentic pipeline using simple Python and ADK | Three ADK agents (ingestion, processing, storage) run in sequence under a pipeline agent, executed by ADK Runner with an InMemorySessionService. See pipeline/agents.py. |
+| End-to-end agentic pipeline using simple Python and ADK | Three ADK agents (ingestion, processing, storage) run in order under ADK's built-in SequentialAgent, executed by ADK Runner with an InMemorySessionService. See pipeline/agents.py. |
 | Ingests data from a public API | Open-Meteo forecast API, no API key, hourly temperature_2m for 5 US cities. See pipeline/tools.py. |
 | Processes it (filtering, grouping/aggregation) | Filters to valid daytime readings, groups by city and date, aggregates mean, min, max, and range. See pipeline/tools.py. |
 | Stores it in S3 or GCS | Storage layer uploads to S3 or GCS when configured, and always keeps a local copy. See pipeline/storage.py and the environment variables below. |
@@ -84,9 +84,16 @@ hourly forecasts for New York, Chicago, Los Angeles, Houston, and
 Seattle (5 API calls, 360 hourly records), the processing agent
 filters to valid daytime readings (06:00 to 21:00 local time) and
 aggregates by city and date, and the storage agent writes the
-outputs. A sample run kept 240 of 360 rows, dropped 120 night
-hours and 0 null temperatures, and produced 15 city-day summaries
-for Nov 15 to 17, 2026.
+outputs. The sample run in `output/` kept 240 of 360 rows, dropped 120
+night hours and 0 null temperatures, and produced 15 city-day
+summaries for Nov 16 to 19, 2026. Each city gets 3 days of
+forecasts in its own local time, so the eastern and western cities
+cover slightly different dates. That is why the chart shows 4 dates
+and some dates have bars for only some of the cities.
+
+If every API call fails (for example, with no internet), the run
+stops with an error and keeps the previous outputs instead of
+overwriting them with empty files.
 
 To run the unit tests, which need no network:
 
@@ -120,12 +127,15 @@ export S3_BUCKET=your-bucket-name
 # Google Cloud Storage
 export STORAGE_BACKEND=gcs
 export GCS_BUCKET=your-bucket-name
+export GOOGLE_CLOUD_PROJECT=your-gcp-project-id
 ```
 
 Cloud credentials come from the standard chain: AWS credentials for
 S3, Google Application Default Credentials for GCS. No credentials
 go in the code or in a config file. Files are uploaded under the
-`da-pipeline/` prefix in the bucket. If the cloud upload fails, the
+`da-pipeline/` prefix in the bucket, with content types set from
+the file extension (`text/html` for the page, `application/json`
+for the data), so the page opens as a web page from the bucket. If the cloud upload fails, the
 run keeps the local copy, records a warning, and still succeeds.
 
 Live GCS test, Nov 17, 2026: ran with STORAGE_BACKEND=gcs and

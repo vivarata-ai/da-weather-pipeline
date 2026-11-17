@@ -19,6 +19,7 @@ from pipeline.agents import build_pipeline_agent
 
 
 async def run_pipeline():
+    """Run the pipeline. Returns True when outputs were stored."""
     session_service = InMemorySessionService()
     await session_service.create_session(
         app_name=config.APP_NAME, user_id="da_student", session_id="run_1")
@@ -35,6 +36,12 @@ async def run_pipeline():
     ):
         if event.content and event.content.parts:
             print("[%s] %s" % (event.author, event.content.parts[0].text))
+    session = await session_service.get_session(
+        app_name=config.APP_NAME, user_id="da_student", session_id="run_1")
+    if session.state.get("storage_skipped"):
+        print("Run failed: no data was ingested, so nothing was stored. "
+              "Check your internet connection and run again.")
+        return False
     # Read the result from the files on disk, not from session state.
     # The storage agent writes the files, and the disk is the record
     # of what was stored.
@@ -49,10 +56,12 @@ async def run_pipeline():
         processed = json.load(handle)
     print("Daily summaries: %d, dates: %s"
           % (len(processed["daily"]), ", ".join(processed["dates"])))
+    return True
 
 
 def main():
-    asyncio.run(run_pipeline())
+    if not asyncio.run(run_pipeline()):
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
