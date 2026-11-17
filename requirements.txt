@@ -1,0 +1,5 @@
+# Pinned to the versions tested on Nov 15, 2026, Python 3.12.
+google-adk==2.14.1
+requests==2.34.2
+boto3==1.44.3
+google-cloud-storage==3.17.1

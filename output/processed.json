@@ -1,0 +1,160 @@
+{
+  "source": "Open-Meteo forecast API, hourly temperature_2m",
+  "unit": "Fahrenheit",
+  "cities": [
+    "Chicago",
+    "Houston",
+    "Los Angeles",
+    "New York",
+    "Seattle"
+  ],
+  "dates": [
+    "2026-11-15",
+    "2026-11-16",
+    "2026-11-17"
+  ],
+  "filter": {
+    "received": 360,
+    "kept": 240,
+    "dropped_null_temperature": 0,
+    "dropped_night_hours": 120
+  },
+  "failed_cities": [],
+  "daily": [
+    {
+      "city": "Chicago",
+      "date": "2026-11-15",
+      "count": 16,
+      "mean_f": 41.0,
+      "min_f": 30.4,
+      "max_f": 48.3,
+      "range_f": 17.9
+    },
+    {
+      "city": "Chicago",
+      "date": "2026-11-16",
+      "count": 16,
+      "mean_f": 42.0,
+      "min_f": 31.1,
+      "max_f": 51.1,
+      "range_f": 20.0
+    },
+    {
+      "city": "Chicago",
+      "date": "2026-11-17",
+      "count": 16,
+      "mean_f": 46.3,
+      "min_f": 31.9,
+      "max_f": 54.3,
+      "range_f": 22.4
+    },
+    {
+      "city": "Houston",
+      "date": "2026-11-15",
+      "count": 16,
+      "mean_f": 54.3,
+      "min_f": 50.7,
+      "max_f": 60.1,
+      "range_f": 9.4
+    },
+    {
+      "city": "Houston",
+      "date": "2026-11-16",
+      "count": 16,
+      "mean_f": 53.8,
+      "min_f": 49.4,
+      "max_f": 58.8,
+      "range_f": 9.4
+    },
+    {
+      "city": "Houston",
+      "date": "2026-11-17",
+      "count": 16,
+      "mean_f": 57.8,
+      "min_f": 45.5,
+      "max_f": 63.7,
+      "range_f": 18.2
+    },
+    {
+      "city": "Los Angeles",
+      "date": "2026-11-15",
+      "count": 16,
+      "mean_f": 66.5,
+      "min_f": 56.0,
+      "max_f": 74.5,
+      "range_f": 18.5
+    },
+    {
+      "city": "Los Angeles",
+      "date": "2026-11-16",
+      "count": 16,
+      "mean_f": 62.6,
+      "min_f": 57.3,
+      "max_f": 68.2,
+      "range_f": 10.9
+    },
+    {
+      "city": "Los Angeles",
+      "date": "2026-11-17",
+      "count": 16,
+      "mean_f": 60.5,
+      "min_f": 47.9,
+      "max_f": 66.3,
+      "range_f": 18.4
+    },
+    {
+      "city": "New York",
+      "date": "2026-11-15",
+      "count": 16,
+      "mean_f": 45.7,
+      "min_f": 38.6,
+      "max_f": 51.5,
+      "range_f": 12.9
+    },
+    {
+      "city": "New York",
+      "date": "2026-11-16",
+      "count": 16,
+      "mean_f": 43.9,
+      "min_f": 34.0,
+      "max_f": 51.6,
+      "range_f": 17.6
+    },
+    {
+      "city": "New York",
+      "date": "2026-11-17",
+      "count": 16,
+      "mean_f": 46.0,
+      "min_f": 32.8,
+      "max_f": 52.1,
+      "range_f": 19.3
+    },
+    {
+      "city": "Seattle",
+      "date": "2026-11-15",
+      "count": 16,
+      "mean_f": 49.4,
+      "min_f": 44.1,
+      "max_f": 53.3,
+      "range_f": 9.2
+    },
+    {
+      "city": "Seattle",
+      "date": "2026-11-16",
+      "count": 16,
+      "mean_f": 45.3,
+      "min_f": 40.7,
+      "max_f": 50.0,
+      "range_f": 9.3
+    },
+    {
+      "city": "Seattle",
+      "date": "2026-11-17",
+      "count": 16,
+      "mean_f": 44.4,
+      "min_f": 37.7,
+      "max_f": 49.4,
+      "range_f": 11.7
+    }
+  ]
+}
