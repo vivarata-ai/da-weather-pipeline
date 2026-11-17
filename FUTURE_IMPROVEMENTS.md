@@ -1,6 +1,9 @@
 # Future Improvements
 
+Public Git repository: https://github.com/vivarata-ai/da-weather-pipeline
+
 Short list of what to improve next, in priority order.
+
 
 ## 1. Incremental loads with a high-water mark
 
@@ -56,3 +59,23 @@ Gemini API key is available, add an LlmAgent that reads the daily
 summary and writes a short plain-language summary of the findings,
 such as which city had the widest daily range. Keep it separate
 from the pipeline itself, so the numbers never depend on the model.
+
+## 7. Monitoring and alerting
+
+Add structured logging for every run, with run id, rows received and kept, cities failed, and upload status, and send an alert when a run fails, a city fails, or the null rate spikes. Keep a run history table so a missed run is visible the next morning instead of being found when the page looks stale.
+
+## 8. Testing
+
+Add tests for the ingestion and storage steps, not only processing. Test the API response parser against a saved sample response, test the GCS and S3 upload paths with a mocked client, and add an end to end test on sample data that checks the HTML page contains the expected city rows. Run the tests in continuous integration on every push.
+
+## 9. Security
+
+Keep the least privilege rule already in the design: the storage credential may write only to the one pipeline bucket and prefix, never to other buckets. Rotate cloud credentials, never commit them, and keep the bucket private, since the HTML page is served from the local copy. Add a check that no credential file is ever added to the repo.
+
+## 10. Cost
+
+The pipeline is cheap today: the API is free, the run is short, and the outputs are small files. Keep it that way by staying on kill and fill for a 3 day window, avoiding a warehouse until the history grows, and setting a lifecycle rule on the bucket so old raw files expire instead of accumulating. If the window grows, move to incremental loads in item 1 before paying for a larger run.
+
+## 11. Data quality
+
+Beyond the current null and night filters, add range checks on temperature, a check that every city returns the expected number of hours, and a comparison of the new daily summary against the previous run so a sudden jump is flagged instead of silently published. Record the data quality checks in the processed file alongside the filter summary.

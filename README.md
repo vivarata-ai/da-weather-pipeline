@@ -1,5 +1,7 @@
 # DA Optional Makeup Assignment: Agentic Data Engineering Pipeline
 
+Public Git repository: https://github.com/vivarata-ai/da-weather-pipeline
+
 End-to-end agentic data engineering pipeline in simple Python using
 Google's Agent Development Kit (ADK). It ingests hourly temperature
 forecasts from a public API, processes them, stores the results, and
@@ -19,7 +21,7 @@ on the DA homepage on Canvas.
 | Processes it (filtering, grouping/aggregation) | Filters to valid daytime readings, groups by city and date, aggregates mean, min, max, and range. See pipeline/tools.py. |
 | Stores it in S3 or GCS | Storage layer uploads to S3 or GCS when configured, and always keeps a local copy. See pipeline/storage.py and the environment variables below. |
 | Shows the results on a simple HTML page with a visualization | output/index.html, a static page with a Chart.js bar chart and a full results table. Open it directly in a browser. |
-| Public Git repo with code, professor can run it | This folder is the repo. Push it to a public Git repo and share the link. README has the setup and run steps. |
+| Public Git repo with code, professor can run it | Public repo: https://github.com/vivarata-ai/da-weather-pipeline. README has the setup and run steps. |
 | Short document describing future improvements | FUTURE_IMPROVEMENTS.md. |
 
 ## Design, in the terms of the DA class
@@ -125,6 +127,12 @@ S3, Google Application Default Credentials for GCS. No credentials
 go in the code or in a config file. Files are uploaded under the
 `da-pipeline/` prefix in the bucket. If the cloud upload fails, the
 run keeps the local copy, records a warning, and still succeeds.
+
+Live GCS test, Nov 17, 2026: ran with STORAGE_BACKEND=gcs and
+GCS_BUCKET=varun-crypto-pipeline-2026, and all 3 files uploaded to
+gs://varun-crypto-pipeline-2026/da-pipeline/ (raw.json,
+processed.json, index.html). Ingested 360 records, kept 240, 15
+city-day summaries for Nov 16 to 19, 2026.
 
 ## Project layout
 

@@ -21,30 +21,30 @@ canvas { max-width: 760px; margin-top: 16px; }
 filtered to valid daytime readings (06:00 to 21:00 local time),
 grouped by city and date, and aggregated to mean, min, max, and
 range in Fahrenheit. Source data: Open-Meteo forecast API, hourly temperature_2m. Cities: Chicago, Houston, Los Angeles, New York, Seattle.
-Dates: 2026-11-15, 2026-11-16, 2026-11-17.</p>
+Dates: 2026-11-16, 2026-11-17, 2026-11-18, 2026-11-19.</p>
 <canvas id="meanChart"></canvas>
 <table>
 <tr><th>City</th><th>Date</th><th>Readings</th><th>Mean F</th>
 <th>Min F</th><th>Max F</th><th>Range F</th></tr>
-<tr><td>Chicago</td><td>2026-11-15</td><td>16</td><td>41.0</td><td>30.4</td><td>48.3</td><td>17.9</td></tr>
-<tr><td>Chicago</td><td>2026-11-16</td><td>16</td><td>42.0</td><td>31.1</td><td>51.1</td><td>20.0</td></tr>
-<tr><td>Chicago</td><td>2026-11-17</td><td>16</td><td>46.3</td><td>31.9</td><td>54.3</td><td>22.4</td></tr>
-<tr><td>Houston</td><td>2026-11-15</td><td>16</td><td>54.3</td><td>50.7</td><td>60.1</td><td>9.4</td></tr>
-<tr><td>Houston</td><td>2026-11-16</td><td>16</td><td>53.8</td><td>49.4</td><td>58.8</td><td>9.4</td></tr>
-<tr><td>Houston</td><td>2026-11-17</td><td>16</td><td>57.8</td><td>45.5</td><td>63.7</td><td>18.2</td></tr>
-<tr><td>Los Angeles</td><td>2026-11-15</td><td>16</td><td>66.5</td><td>56.0</td><td>74.5</td><td>18.5</td></tr>
-<tr><td>Los Angeles</td><td>2026-11-16</td><td>16</td><td>62.6</td><td>57.3</td><td>68.2</td><td>10.9</td></tr>
-<tr><td>Los Angeles</td><td>2026-11-17</td><td>16</td><td>60.5</td><td>47.9</td><td>66.3</td><td>18.4</td></tr>
-<tr><td>New York</td><td>2026-11-15</td><td>16</td><td>45.7</td><td>38.6</td><td>51.5</td><td>12.9</td></tr>
-<tr><td>New York</td><td>2026-11-16</td><td>16</td><td>43.9</td><td>34.0</td><td>51.6</td><td>17.6</td></tr>
-<tr><td>New York</td><td>2026-11-17</td><td>16</td><td>46.0</td><td>32.8</td><td>52.1</td><td>19.3</td></tr>
-<tr><td>Seattle</td><td>2026-11-15</td><td>16</td><td>49.4</td><td>44.1</td><td>53.3</td><td>9.2</td></tr>
-<tr><td>Seattle</td><td>2026-11-16</td><td>16</td><td>45.3</td><td>40.7</td><td>50.0</td><td>9.3</td></tr>
-<tr><td>Seattle</td><td>2026-11-17</td><td>16</td><td>44.4</td><td>37.7</td><td>49.4</td><td>11.7</td></tr>
+<tr><td>Chicago</td><td>2026-11-16</td><td>16</td><td>42.5</td><td>31.1</td><td>51.2</td><td>20.1</td></tr>
+<tr><td>Chicago</td><td>2026-11-17</td><td>16</td><td>44.0</td><td>31.7</td><td>53.7</td><td>22.0</td></tr>
+<tr><td>Chicago</td><td>2026-11-18</td><td>16</td><td>50.6</td><td>35.7</td><td>59.4</td><td>23.7</td></tr>
+<tr><td>Houston</td><td>2026-11-16</td><td>16</td><td>55.7</td><td>49.4</td><td>61.5</td><td>12.1</td></tr>
+<tr><td>Houston</td><td>2026-11-17</td><td>16</td><td>56.0</td><td>45.6</td><td>62.9</td><td>17.3</td></tr>
+<tr><td>Houston</td><td>2026-11-18</td><td>16</td><td>63.1</td><td>50.1</td><td>69.6</td><td>19.5</td></tr>
+<tr><td>Los Angeles</td><td>2026-11-16</td><td>16</td><td>66.8</td><td>61.0</td><td>71.1</td><td>10.1</td></tr>
+<tr><td>Los Angeles</td><td>2026-11-17</td><td>16</td><td>60.4</td><td>50.5</td><td>68.3</td><td>17.8</td></tr>
+<tr><td>Los Angeles</td><td>2026-11-18</td><td>16</td><td>62.1</td><td>49.5</td><td>68.0</td><td>18.5</td></tr>
+<tr><td>New York</td><td>2026-11-17</td><td>16</td><td>48.4</td><td>34.0</td><td>58.9</td><td>24.9</td></tr>
+<tr><td>New York</td><td>2026-11-18</td><td>16</td><td>52.6</td><td>39.1</td><td>61.6</td><td>22.5</td></tr>
+<tr><td>New York</td><td>2026-11-19</td><td>16</td><td>55.8</td><td>49.1</td><td>61.4</td><td>12.3</td></tr>
+<tr><td>Seattle</td><td>2026-11-16</td><td>16</td><td>46.0</td><td>39.2</td><td>51.9</td><td>12.7</td></tr>
+<tr><td>Seattle</td><td>2026-11-17</td><td>16</td><td>44.1</td><td>37.8</td><td>49.9</td><td>12.1</td></tr>
+<tr><td>Seattle</td><td>2026-11-18</td><td>16</td><td>45.7</td><td>41.4</td><td>50.3</td><td>8.9</td></tr>
 
 </table>
 <script>
-const DATA = {"source": "Open-Meteo forecast API, hourly temperature_2m", "unit": "Fahrenheit", "cities": ["Chicago", "Houston", "Los Angeles", "New York", "Seattle"], "dates": ["2026-11-15", "2026-11-16", "2026-11-17"], "filter": {"received": 360, "kept": 240, "dropped_null_temperature": 0, "dropped_night_hours": 120}, "failed_cities": [], "daily": [{"city": "Chicago", "date": "2026-11-15", "count": 16, "mean_f": 41.0, "min_f": 30.4, "max_f": 48.3, "range_f": 17.9}, {"city": "Chicago", "date": "2026-11-16", "count": 16, "mean_f": 42.0, "min_f": 31.1, "max_f": 51.1, "range_f": 20.0}, {"city": "Chicago", "date": "2026-11-17", "count": 16, "mean_f": 46.3, "min_f": 31.9, "max_f": 54.3, "range_f": 22.4}, {"city": "Houston", "date": "2026-11-15", "count": 16, "mean_f": 54.3, "min_f": 50.7, "max_f": 60.1, "range_f": 9.4}, {"city": "Houston", "date": "2026-11-16", "count": 16, "mean_f": 53.8, "min_f": 49.4, "max_f": 58.8, "range_f": 9.4}, {"city": "Houston", "date": "2026-11-17", "count": 16, "mean_f": 57.8, "min_f": 45.5, "max_f": 63.7, "range_f": 18.2}, {"city": "Los Angeles", "date": "2026-11-15", "count": 16, "mean_f": 66.5, "min_f": 56.0, "max_f": 74.5, "range_f": 18.5}, {"city": "Los Angeles", "date": "2026-11-16", "count": 16, "mean_f": 62.6, "min_f": 57.3, "max_f": 68.2, "range_f": 10.9}, {"city": "Los Angeles", "date": "2026-11-17", "count": 16, "mean_f": 60.5, "min_f": 47.9, "max_f": 66.3, "range_f": 18.4}, {"city": "New York", "date": "2026-11-15", "count": 16, "mean_f": 45.7, "min_f": 38.6, "max_f": 51.5, "range_f": 12.9}, {"city": "New York", "date": "2026-11-16", "count": 16, "mean_f": 43.9, "min_f": 34.0, "max_f": 51.6, "range_f": 17.6}, {"city": "New York", "date": "2026-11-17", "count": 16, "mean_f": 46.0, "min_f": 32.8, "max_f": 52.1, "range_f": 19.3}, {"city": "Seattle", "date": "2026-11-15", "count": 16, "mean_f": 49.4, "min_f": 44.1, "max_f": 53.3, "range_f": 9.2}, {"city": "Seattle", "date": "2026-11-16", "count": 16, "mean_f": 45.3, "min_f": 40.7, "max_f": 50.0, "range_f": 9.3}, {"city": "Seattle", "date": "2026-11-17", "count": 16, "mean_f": 44.4, "min_f": 37.7, "max_f": 49.4, "range_f": 11.7}]};
+const DATA = {"source": "Open-Meteo forecast API, hourly temperature_2m", "unit": "Fahrenheit", "cities": ["Chicago", "Houston", "Los Angeles", "New York", "Seattle"], "dates": ["2026-11-16", "2026-11-17", "2026-11-18", "2026-11-19"], "filter": {"received": 360, "kept": 240, "dropped_null_temperature": 0, "dropped_night_hours": 120}, "failed_cities": [], "daily": [{"city": "Chicago", "date": "2026-11-16", "count": 16, "mean_f": 42.5, "min_f": 31.1, "max_f": 51.2, "range_f": 20.1}, {"city": "Chicago", "date": "2026-11-17", "count": 16, "mean_f": 44.0, "min_f": 31.7, "max_f": 53.7, "range_f": 22.0}, {"city": "Chicago", "date": "2026-11-18", "count": 16, "mean_f": 50.6, "min_f": 35.7, "max_f": 59.4, "range_f": 23.7}, {"city": "Houston", "date": "2026-11-16", "count": 16, "mean_f": 55.7, "min_f": 49.4, "max_f": 61.5, "range_f": 12.1}, {"city": "Houston", "date": "2026-11-17", "count": 16, "mean_f": 56.0, "min_f": 45.6, "max_f": 62.9, "range_f": 17.3}, {"city": "Houston", "date": "2026-11-18", "count": 16, "mean_f": 63.1, "min_f": 50.1, "max_f": 69.6, "range_f": 19.5}, {"city": "Los Angeles", "date": "2026-11-16", "count": 16, "mean_f": 66.8, "min_f": 61.0, "max_f": 71.1, "range_f": 10.1}, {"city": "Los Angeles", "date": "2026-11-17", "count": 16, "mean_f": 60.4, "min_f": 50.5, "max_f": 68.3, "range_f": 17.8}, {"city": "Los Angeles", "date": "2026-11-18", "count": 16, "mean_f": 62.1, "min_f": 49.5, "max_f": 68.0, "range_f": 18.5}, {"city": "New York", "date": "2026-11-17", "count": 16, "mean_f": 48.4, "min_f": 34.0, "max_f": 58.9, "range_f": 24.9}, {"city": "New York", "date": "2026-11-18", "count": 16, "mean_f": 52.6, "min_f": 39.1, "max_f": 61.6, "range_f": 22.5}, {"city": "New York", "date": "2026-11-19", "count": 16, "mean_f": 55.8, "min_f": 49.1, "max_f": 61.4, "range_f": 12.3}, {"city": "Seattle", "date": "2026-11-16", "count": 16, "mean_f": 46.0, "min_f": 39.2, "max_f": 51.9, "range_f": 12.7}, {"city": "Seattle", "date": "2026-11-17", "count": 16, "mean_f": 44.1, "min_f": 37.8, "max_f": 49.9, "range_f": 12.1}, {"city": "Seattle", "date": "2026-11-18", "count": 16, "mean_f": 45.7, "min_f": 41.4, "max_f": 50.3, "range_f": 8.9}]};
 const dates = DATA.dates;
 const cities = DATA.cities;
 const colors = ["#2563eb", "#dc2626", "#059669", "#d97706", "#7c3aed"];
